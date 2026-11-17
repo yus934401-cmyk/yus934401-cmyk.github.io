@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#141414" />
+  <title>Fintech Layout Study — 排版复刻</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23ffdd00'/%3E%3Cpath d='M12 42 26 28l8 8 18-20M40 16h12v12' fill='none' stroke='%23141414' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/noto-sans-sc.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SVG SPRITE + SHAPES
+       ============================================================ -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-logo" viewBox="0 0 30 22">
+        <path d="M2 17.5 8.7 10.8l4.2 4.2L21.9 5.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.4 5.5h5.6v5.6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <path d="m15.8 15.8 4.4 4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="i-cap" viewBox="0 0 24 24">
+        <path d="M2.5 9.2 12 4l9.5 5.2L12 14.5 2.5 9.2Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M6.3 11.5v4.1c0 1.6 2.5 2.9 5.7 2.9s5.7-1.3 5.7-2.9v-4.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M21.5 9.2v5.3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="i-briefcase" viewBox="0 0 24 24">
+        <rect x="3" y="7.2" width="18" height="12" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.2h18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M10.2 12.2v2h3.6v-2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      </symbol>
+
+      <symbol id="i-figma" viewBox="0 0 24 24">
+        <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-sketch" viewBox="0 0 24 24">
+        <path d="M12 1.25l6.75 6.637V2L12 1.25zm0 0l-6.05 7h12.1l-6.05-7zm0 0L5.25 2v5.887L12 1.25zM5.25 2L0 9l4.416-.68L5.25 2zM0 9l11.959 13.703.008-.014L4.443 9H0zm18.75-7l.834 6.32L24 9l-5.25-7zM24 9h-4.506l-7.523 13.69.029.06L24 9zM12 22.75l-.031-.057-.008.012.039.045zM5.436 9l6.533 13.686L18.564 9H5.436Z" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-chatgpt" viewBox="0 0 24 24">
+        <path d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-opencode" viewBox="0 0 24 24">
+        <path d="M22 24H2V0h20zM17 4.8H7v14.4h10z" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-wolkbuddy" viewBox="0 0 24 24">
+        <path d="M5 4h14a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3h-6l-4.5 3v-3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/>
+        <circle cx="9" cy="10.5" r="1" fill="currentColor"/>
+        <circle cx="15" cy="10.5" r="1" fill="currentColor"/>
+        <path d="M9 13.5c.8.8 1.8 1.2 3 1.2s2.2-.4 3-1.2" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="i-lovart" viewBox="0 0 24 24">
+        <path d="M12 2c1.3 5.8 3.9 8.4 9.7 9.7-5.8 1.3-8.4 3.9-9.7 9.7-1.3-5.8-3.9-8.4-9.7-9.7C8.1 10.4 10.7 7.8 12 2Z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/>
+        <circle cx="19.2" cy="4.8" r="1.15" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-ps" viewBox="0 0 32 32">
+        <rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="16" y="21" text-anchor="middle" font-family="Noto Sans SC, Arial, sans-serif" font-size="11" font-weight="600" fill="currentColor">Ps</text>
+      </symbol>
+
+      <symbol id="i-ai" viewBox="0 0 32 32">
+        <rect x="3" y="3" width="26" height="26" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <text x="16" y="21" text-anchor="middle" font-family="Noto Sans SC, Arial, sans-serif" font-size="11" font-weight="600" fill="currentColor">Ai</text>
+      </symbol>
+
+      <symbol id="i-c4d" viewBox="0 0 24 24">
+        <path d="M12 2.8 21 7.5v9L12 21.2 3 16.5v-9L12 2.8Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M3 7.5 12 12l9-4.5M12 12v9.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M6 18 18 6M8.5 6H18v9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="i-chevron" viewBox="0 0 24 24">
+        <path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 8h16M4 16h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="i-star8" viewBox="0 0 44 44">
+        <g fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round">
+          <path d="M22 3v38M3 22h38M8.6 8.6l26.8 26.8M35.4 8.6 8.6 35.4"/>
+          <circle cx="22" cy="22" r="2.2"/>
+        </g>
+      </symbol>
+
+      <symbol id="i-rings" viewBox="0 0 54 40">
+        <g fill="none" stroke="currentColor" stroke-width="1.3">
+          <circle cx="19" cy="20" r="14.5"/>
+          <circle cx="35" cy="20" r="14.5"/>
+        </g>
+      </symbol>
+
+      <symbol id="i-star4" viewBox="0 0 48 48">
+        <path d="M24 2.5c2.2 14.2 7.3 19.3 21.5 21.5C31.3 26.2 26.2 31.3 24 45.5 21.8 31.3 16.7 26.2 2.5 24 16.7 21.8 21.8 16.7 24 2.5Z" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="i-eyes" viewBox="0 0 78 44">
+        <path d="M22 2C10.4 2 1 10.7 1 22s9.4 20 21 20c7 0 13.1-3.1 17-8 3.9 4.9 10 8 17 8 11.6 0 21-9 21-20S67.6 2 56 2c-7 0-13.1 3.1-17 8-3.9-4.9-10-8-17-8Z" fill="currentColor"/>
+        <ellipse cx="16.6" cy="18.6" rx="7.1" ry="5.8" fill="#fff" transform="rotate(-27 16.6 18.6)"/>
+        <ellipse cx="60.4" cy="18.6" rx="7.1" ry="5.8" fill="#fff" transform="rotate(27 60.4 18.6)"/>
+      </symbol>
+
+      <symbol id="i-award" viewBox="0 0 34 34">
+        <circle cx="17" cy="17" r="14.6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M17 8.4c1.1 4.7 2.9 6.5 7.6 7.6-4.7 1.1-6.5 2.9-7.6 7.6-1.1-4.7-2.9-6.5-7.6-7.6 4.7-1.1 6.5-2.9 7.6-7.6Z" fill="currentColor"/>
+        <path d="M9.2 25.4c2.2 1.7 4.7 2.6 7.8 2.6s5.7-.9 7.8-2.6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="i-award-alt" viewBox="0 0 34 34">
+        <circle cx="17" cy="17" r="14.6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M9 23.5 13.2 15l3.7 5.2 3.8-8 4.4 11.3" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17" cy="17" r="12.7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="1 4" opacity=".5"/>
+      </symbol>
+
+      <symbol id="i-image" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="8.4" cy="9.4" r="1.7" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <path d="m4.8 17.5 4.7-4.6 3.7 3.5 3.2-2.9 3 3.2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <symbol id="i-facebook" viewBox="0 0 24 24">
+        <path d="M14 8.2V6.7c0-.7.4-1.1 1.2-1.1h1.7V2.3c-.4-.1-1.5-.1-2.8-.1-2.8 0-4.7 1.7-4.7 4.8v1.2H6.8v3.4h2.6V22h4.1v-10.4h3l.4-3.4h-3Z" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.6">
+          <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.7" r=".9" fill="currentColor" stroke="none"/>
+        </g>
+      </symbol>
+
+      <symbol id="i-tiktok" viewBox="0 0 24 24">
+        <path d="M14.1 3h3c.3 2.2 1.7 3.8 4 4.1v3.1a8 8 0 0 1-4.1-1.3v6.6a5.8 5.8 0 1 1-5-5.7v3.2a2.7 2.7 0 1 0 1.9 2.6V3Z" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m4 12.5 5 5L20 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+
+      <!-- Wavy cards: outer-left, centre, outer-right -->
+      <clipPath id="clip-card-left" clipPathUnits="objectBoundingBox">
+        <path d="M.06 0H.985C.995 0 1 .015 1 .035V.18C1 .27.987 .33.987 .42s.013.24.013.33v.215C1 .985.995 1 .985 1H.06C.025 1 0 .975 0 .94V.06C0 .025.025 0 .06 0Z"/>
+      </clipPath>
+      <clipPath id="clip-card-mid" clipPathUnits="objectBoundingBox">
+        <path d="M.02 0H.98C.99 0 1 .01 1 .02v.18c0 .09-.013.15-.013.24s.013.15.013.24v.3C1 .99.99 1 .98 1H.02C.01 1 0 .99 0 .98v-.3c0-.09.013-.15.013-.24S0 .35 0 .26V.02C0 .01.01 0 .02 0Z"/>
+      </clipPath>
+      <clipPath id="clip-card-right" clipPathUnits="objectBoundingBox">
+        <path d="M.02 0H.94C.975 0 1 .025 1 .06v.88C1 .975.975 1 .94 1H.02C.01 1 0 .99 0 .98v-.33c0-.09.013-.15.013-.24S0 .33 0 .24V.02C0 .01.01 0 .02 0Z"/>
+      </clipPath>
+
+      <!-- Large panels: top scoop + bottom lip -->
+      <clipPath id="clip-panel" clipPathUnits="objectBoundingBox">
+        <path d="M.045 0H.335C.4 0 .43 .062 .5 .062S.6 0 .665 0H.955C.98 0 1 .02 1 .045V.9C1 .93.98 .952.955 .952H.67C.62 .952 .6 1 .54 1H.46C.4 1 .38 .952 .33 .952H.045C.02 .952 0 .93 0 .9V.045C0 .02.02 0 .045 0Z"/>
+      </clipPath>
+
+      <clipPath id="clip-panel-top" clipPathUnits="objectBoundingBox">
+        <path d="M.045 0H.335C.4 0 .43 .062 .5 .062S.6 0 .665 0H.955C.98 0 1 .02 1 .045V.955C1 .98.98 1 .955 1H.045C.02 1 0 .98 0 .955V.045C0 .02.02 0 .045 0Z"/>
+      </clipPath>
+
+      <!-- Name card: black inner card with a scooped top-right shoulder -->
+      <clipPath id="clip-profile-inner" clipPathUnits="objectBoundingBox">
+        <path d="M.06 0H.5C.555 0 .58 .03 .605 .08L.655 .18C.675 .22 .71 .245 .76 .245H.94C.975 .245 1 .27 1 .305V.94C1 .975 .975 1 .94 1H.06C.025 1 0 .975 0 .94V.06C0 .025 .025 0 .06 0Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <div class="hero-wrap">
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#" aria-label="Shisy Shisiyu 首页">
+          <img class="brand-logo" src="assets/hero/logo.png" alt="Shisy Shisiyu">
+        </a>
+
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#projects">项目经历</a>
+          <a href="#about">个人介绍</a>
+          <a href="#contact">联系方式</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false">
+            <svg><use href="#i-menu"></use></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-panel" aria-label="Mobile navigation">
+        <nav>
+          <a href="#projects">项目经历 <svg><use href="#i-arrow"></use></svg></a>
+          <a href="#about">个人介绍 <svg><use href="#i-arrow"></use></svg></a>
+          <a href="#contact">联系方式 <svg><use href="#i-arrow"></use></svg></a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero" aria-label="Hero">
+      <div class="hero-card hero-design">
+        <svg class="hero-notch" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M394 0H1440V110H459C459 110 394 55 394 0Z" fill="#141414"/>
+        </svg>
+
+        <div class="hero-nav-bar" aria-hidden="true"></div>
+
+        <div class="hero-media" aria-hidden="true">
+          <video
+            class="hero-media-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/video/hero-poster.jpg"
+            disablepictureinpicture
+          >
+            <source src="assets/video/hero.mp4" type="video/mp4" />
+          </video>
+          <span class="hero-media-color"></span>
+          <span class="hero-media-tint"></span>
+          <span class="hero-media-vignette"></span>
+        </div>
+
+        <img class="hero-design-copy" src="assets/hero/copy.png" alt="UI/UX Designer 2027。Hello, I'm Shi Siyu. A UIUX Designer. 用户研究定方向，数据验证结果，AI 工作流加速落地。">
+                <img class="hero-design-card" src="assets/hero/card.png" alt="石思雨个人名片：2027届，UI/UX Designer，黑龙江大学产品设计专业硕士，三段 UI/UX 实习经历，覆盖 C 端与 B 端，AI 工作流。">
+
+        <div class="hero-design-cta">
+          <img src="assets/hero/cta.png" alt="查看作品 / 下载简历">
+          <a class="hero-design-cta-link hero-design-cta-link--left" href="#projects" aria-label="查看作品"></a>
+          <a class="hero-design-cta-link hero-design-cta-link--right" href="assets/shi-siyu-resume.pdf" download aria-label="下载简历"></a>
+        </div>
+      </div>
+      <div class="hero-foot">
+        <div class="skills-band" aria-label="Skills and tools">
+          <div class="skills-viewport">
+            <div class="skills-track">
+              <div class="skills-set" role="list">
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/figma.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">Figma</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/sketch.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">Sketch</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/chatgpt.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">ChatGPT</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/opencode.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">OpenCode</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/wolkbuddy.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">WolkBuddy</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/lovart.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">Lovart</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/ps.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">PS</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/ai.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">AI</span>
+                </span>
+                <span class="skill-chip" role="listitem">
+                  <span class="skill-icon"><img src="assets/icons/c4d.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-name">C4D</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main>
+    <!-- ============================================================
+         PROJECT SHOWCASE
+         ============================================================ -->
+    <section class="essentials projects" id="projects" aria-label="项目展示">
+      <div class="container">
+        <div class="section-head">
+          <span class="tag"><span class="sk is-title" style="width:66%;height:6px;opacity:.4"></span></span>
+          <div class="section-title">
+            <span class="sk is-title" style="width:min(640px,70%)"></span>
+            <span class="sk is-title" style="width:min(460px,52%)"></span>
+          </div>
+          <span class="sk is-body section-sub" style="width:min(390px,46%);height:7px"></span>
+        </div>
+
+        <div class="projects-band">
+          <div class="projects-thread" aria-hidden="true">
+            <svg viewBox="0 0 1312 240" preserveAspectRatio="none" focusable="false">
+              <defs>
+                <linearGradient id="project-thread-gradient" x1="0" y1="0" x2="1312" y2="0" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#ffe14a"></stop>
+                  <stop offset=".28" stop-color="#75a7ff"></stop>
+                  <stop offset=".55" stop-color="#ff8ac6"></stop>
+                  <stop offset=".78" stop-color="#8fa4ff"></stop>
+                  <stop offset="1" stop-color="#c3d0ff"></stop>
+                </linearGradient>
+                <filter id="project-thread-blur" x="-30%" y="-200%" width="160%" height="500%">
+                  <feGaussianBlur stdDeviation="7"></feGaussianBlur>
+                </filter>
+              </defs>
+              <g transform="translate(0 20)">
+                <path class="project-thread-glow" d="M -40 120 C -7.33 111, 67.83 81.67, 156 66 C 244.17 50.33, 378 21.67, 489 26 C 600 30.33, 711 88.67, 822 92 C 933 95.33, 1066.67 59.33, 1155 46 C 1243.33 32.67, 1319.17 17.67, 1352 12"></path>
+                <path class="project-thread-line" d="M -40 120 C -7.33 111, 67.83 81.67, 156 66 C 244.17 50.33, 378 21.67, 489 26 C 600 30.33, 711 88.67, 822 92 C 933 95.33, 1066.67 59.33, 1155 46 C 1243.33 32.67, 1319.17 17.67, 1352 12"></path>
+                <path class="project-thread-shine" d="M -40 120 C -7.33 111, 67.83 81.67, 156 66 C 244.17 50.33, 378 21.67, 489 26 C 600 30.33, 711 88.67, 822 92 C 933 95.33, 1066.67 59.33, 1155 46 C 1243.33 32.67, 1319.17 17.67, 1352 12"></path>
+              </g>
+            </svg>
+          </div>
+          <article class="project-card project-card--yellow">
+            <span class="project-tab" aria-hidden="true"></span>
+            <span class="project-ring" aria-hidden="true"></span>
+            <div class="project-top">
+              <span class="project-kicker">PROJECT 01</span>
+              <span class="project-dot" aria-hidden="true"></span>
+            </div>
+            <div class="project-media">
+              <img src="assets/projects/project-1.webp" alt="闪小白二手交易平台界面">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">闪小白</h3>
+              <div class="sk-group project-lines">
+                <span class="sk is-body" style="width:86%"></span>
+                <span class="sk is-body" style="width:62%"></span>
+              </div>
+            </div>
+            <div class="project-foot">
+              <span class="project-link">查看项目</span>
+              <span class="project-arrow" aria-hidden="true"><svg><use href="#i-arrow"></use></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card project-card--blue">
+            <span class="project-tab" aria-hidden="true"></span>
+            <span class="project-ring" aria-hidden="true"></span>
+            <div class="project-top">
+              <span class="project-kicker">PROJECT 02</span>
+              <span class="project-dot" aria-hidden="true"></span>
+            </div>
+            <div class="project-media">
+              <img src="assets/projects/project-2.webp" alt="可视化大屏项目界面">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">可视化大屏</h3>
+              <div class="sk-group project-lines">
+                <span class="sk is-body" style="width:92%"></span>
+                <span class="sk is-body" style="width:70%"></span>
+              </div>
+            </div>
+            <div class="project-foot">
+              <span class="project-link">查看项目</span>
+              <span class="project-arrow" aria-hidden="true"><svg><use href="#i-arrow"></use></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card project-card--pink">
+            <span class="project-tab" aria-hidden="true"></span>
+            <span class="project-ring" aria-hidden="true"></span>
+            <div class="project-top">
+              <span class="project-kicker">PROJECT 03</span>
+              <span class="project-dot" aria-hidden="true"></span>
+            </div>
+            <div class="project-media">
+              <img src="assets/projects/project-3.webp" alt="AIGC运营活动视觉设计">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">AIGC运营活动</h3>
+              <div class="sk-group project-lines">
+                <span class="sk is-body" style="width:88%"></span>
+                <span class="sk is-body" style="width:66%"></span>
+              </div>
+            </div>
+            <div class="project-foot">
+              <span class="project-link">查看项目</span>
+              <span class="project-arrow" aria-hidden="true"><svg><use href="#i-arrow"></use></svg></span>
+            </div>
+          </article>
+
+          <article class="project-card project-card--navy">
+            <span class="project-tab" aria-hidden="true"></span>
+            <span class="project-ring" aria-hidden="true"></span>
+            <div class="project-top">
+              <span class="project-kicker">PROJECT 04</span>
+              <span class="project-dot" aria-hidden="true"></span>
+            </div>
+            <div class="project-media">
+              <img src="assets/projects/project-4.jpg" alt="云枢管理系统界面">
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">云枢管理系统</h3>
+              <div class="sk-group project-lines">
+                <span class="sk is-body" style="width:84%"></span>
+                <span class="sk is-body" style="width:58%"></span>
+              </div>
+            </div>
+            <div class="project-foot">
+              <span class="project-link">查看项目</span>
+              <span class="project-arrow" aria-hidden="true"><svg><use href="#i-arrow"></use></svg></span>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-toggle-wrap">
+          <button class="projects-toggle" type="button" aria-expanded="false" aria-controls="projects-more">
+            <span class="projects-toggle-text">展开全部</span>
+            <svg class="projects-toggle-icon" aria-hidden="true"><use href="#i-chevron"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="projects-more" id="projects-more" inert aria-hidden="true">
+      <div class="projects-more-inner">
+
+    <!-- ============================================================
+         PROJECT DETAILS
+         ============================================================ -->
+    <section class="project-details" aria-label="项目详情">
+      <div class="project-details-head">
+        <span class="project-details-kicker">CASE STUDIES · 项目详情</span>
+        <p class="project-details-sub">四个项目的设计过程、关键动作与结果。</p>
+      </div>
+
+      <div class="project-details-list">
+        <article class="project-detail project-detail--yellow project-detail--svg">
+          <div class="project-detail-svg-overlay">
+            <div class="project-detail-copy">
+              <span class="project-detail-tag">C端设计 · 二手交易</span>
+              <h2 class="project-detail-title">闪小白</h2>
+              <span class="project-detail-en">SHAN XIAOBAI APP</span>
+              <p class="project-detail-lead">闪小白是小白测评旗下垂直自营 3C 数码交易工具 APP，主打二手购机、旧机回收与官方维修服务。本次以专业、高效、易用为核心，对全链路进行体验改版。</p>
+            </div>
+            <div class="project-detail-stats">
+              <div class="project-stat project-stat--pink">
+                <strong>+23%</strong>
+                <span>回收业务首屏有效触达率</span>
+              </div>
+              <div class="project-stat project-stat--green">
+                <strong>+34%</strong>
+                <span>页面平均停留时长</span>
+              </div>
+              <div class="project-stat project-stat--blue">
+                <strong>+18%</strong>
+                <span>下单转化率提升</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-detail-media project-detail-media--svg-fallback">
+            <img src="assets/projects/project-1.webp" alt="闪小白二手交易平台界面">
+          </div>
+        </article>
+
+        <article class="project-detail project-detail--blue">
+          <span class="project-detail-handle" aria-hidden="true"></span>
+          <div class="project-detail-copy">
+            <span class="project-detail-tag">大屏设计 · 工业数字孪生</span>
+            <h2 class="project-detail-title">可视化大屏</h2>
+            <span class="project-detail-en">INDUSTRIAL DIGITAL TWIN</span>
+            <p class="project-detail-lead">针对美的飞翎电子工业数字孪生运营驾驶舱的体验升级，解决工厂业务规模扩张、管理精细化后，原系统信息层级与视觉体验不匹配的问题。</p>
+            <div class="project-detail-stats">
+              <div class="project-stat project-stat--pink">
+                <strong>4 大</strong>
+                <span>核心业务模块</span>
+              </div>
+              <div class="project-stat project-stat--green">
+                <strong>95%</strong>
+                <span>物流自动化率</span>
+              </div>
+              <div class="project-stat project-stat--blue">
+                <strong>308 天</strong>
+                <span>无损失工事故运行天数</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-detail-media">
+            <img src="assets/projects/project-2.webp" alt="工业数字孪生可视化大屏界面">
+          </div>
+        </article>
+
+        <article class="project-detail project-detail--pink">
+          <span class="project-detail-handle" aria-hidden="true"></span>
+          <div class="project-detail-copy">
+            <span class="project-detail-tag">AIGC设计 · 运营活动</span>
+            <h2 class="project-detail-title">AIGC 运营活动</h2>
+            <span class="project-detail-en">AIGC CAMPAIGN</span>
+            <p class="project-detail-lead">从运营转化视角切入，为二手交易平台设计「集卡换好礼」游戏化活动，构建参与活动 → 收集卡片 → 兑换奖励 → 促进消费的完整闭环，提升用户活跃与二次转化。</p>
+            <div class="project-detail-stats">
+              <div class="project-stat project-stat--pink">
+                <strong>4 大</strong>
+                <span>主题卡片</span>
+              </div>
+              <div class="project-stat project-stat--green">
+                <strong>3 天</strong>
+                <span>连续抽卡机制</span>
+              </div>
+              <div class="project-stat project-stat--blue">
+                <strong>888 元</strong>
+                <span>最高活动奖励</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-detail-media">
+            <img src="assets/projects/project-3.webp" alt="AIGC 集卡换好礼运营活动视觉">
+          </div>
+        </article>
+
+        <article class="project-detail project-detail--navy">
+          <span class="project-detail-handle" aria-hidden="true"></span>
+          <div class="project-detail-copy">
+            <span class="project-detail-tag">B端设计 · 信息管理系统</span>
+            <h2 class="project-detail-title">云枢管理系统</h2>
+            <span class="project-detail-en">CLOUDCORE SYSTEM</span>
+            <p class="project-detail-lead">云枢是为科技制造企业个性化定制的信息管理系统，覆盖采购、生产、仓储、销售、财务等日常运营环节，通过实时数据分析与智能决策支持，帮助企业提高效率、降低成本。</p>
+            <div class="project-detail-stats">
+              <div class="project-stat project-stat--pink">
+                <strong>12 个</strong>
+                <span>功能模块</span>
+              </div>
+              <div class="project-stat project-stat--green">
+                <strong>100+</strong>
+                <span>通用组件</span>
+              </div>
+              <div class="project-stat project-stat--blue">
+                <strong>24 列</strong>
+                <span>响应式栅格</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-detail-media">
+            <img src="assets/projects/project-4.jpg" alt="云枢信息管理系统界面">
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PERSONAL INTRO
+         ============================================================ -->
+    <section class="intro" id="about" aria-label="个人介绍">
+      <div class="intro-copy">
+        <span class="intro-eyebrow"><i aria-hidden="true"></i>ABOUT ME · 个人介绍</span>
+        <h2 class="intro-title">你好，我是<br><em>石思雨</em></h2>
+        <p class="intro-lead">产品设计专业硕士，关注用户体验、数据可视化与 AI 辅助设计。用用户研究定方向，用数据验证结果。</p>
+
+        <div class="intro-details">
+          <div class="intro-block">
+            <span class="intro-label">教育背景</span>
+            <p class="intro-value">黑龙江大学 · 产品设计专业硕士</p>
+            <p class="intro-meta">2024 — 2027 · 产品设计</p>
+          </div>
+          <div class="intro-block">
+            <span class="intro-label">个人荣誉</span>
+            <ul class="intro-honors">
+              <li><span class="intro-honor-dot" aria-hidden="true"></span><span class="sk is-body" style="width:74%"></span></li>
+              <li><span class="intro-honor-dot" aria-hidden="true"></span><span class="sk is-body" style="width:58%"></span></li>
+              <li><span class="intro-honor-dot" aria-hidden="true"></span><span class="sk is-body" style="width:66%"></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="intro-actions">
+          <a class="btn btn--yellow" href="#projects">查看项目</a>
+          <a class="btn btn--outline-light" href="#contact">联系我</a>
+        </div>
+      </div>
+
+      <div class="intro-portrait">
+        <div class="intro-portrait-frame">
+          <span class="intro-portrait-glow" aria-hidden="true"></span>
+          <span class="intro-portrait-ph" aria-hidden="true">
+            <svg><use href="#i-image"></use></svg>
+          </span>
+          <span class="intro-portrait-tag">个人照片</span>
+        </div>
+        <div class="intro-portrait-caption">
+          <span>SHI SIYU</span>
+          <span>2027</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         NEWSLETTER
+         ============================================================ -->
+    <section class="newsletter-zone" id="pricing" aria-label="Newsletter">
+      <div class="newsletter-blackout" aria-hidden="true"></div>
+      <div class="newsletter">
+        <span class="sk is-title newsletter-title" style="width:min(410px,76%);height:11px"></span>
+        <form class="newsletter-form" action="#" method="get" novalidate>
+          <label class="field">
+            <span class="field-ghost" aria-hidden="true"><span class="sk is-title" style="width:54%;height:7px;opacity:.35"></span></span>
+            <input type="email" name="email" aria-label="Email address" autocomplete="email" />
+          </label>
+          <button class="btn btn--dark subscribe-btn" type="submit">Subscribe Now</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+      <div class="footer-art" aria-hidden="true">
+        <span class="footer-silhouette"></span>
+        <span class="footer-wash"></span>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a class="brand brand--footer" href="#" aria-label="Growup home">
+            <svg class="brand-mark"><use href="#i-logo"></use></svg>
+            <span class="brand-word">Growup</span>
+          </a>
+          <div class="sk-group footer-copy">
+            <span class="sk is-body" style="width:94%"></span>
+            <span class="sk is-body" style="width:100%"></span>
+            <span class="sk is-body" style="width:86%"></span>
+            <span class="sk is-body" style="width:62%"></span>
+          </div>
+          <div class="socials">
+            <button class="social" type="button" aria-label="Facebook"><svg><use href="#i-facebook"></use></svg></button>
+            <button class="social" type="button" aria-label="Instagram"><svg><use href="#i-instagram"></use></svg></button>
+            <button class="social" type="button" aria-label="TikTok"><svg><use href="#i-tiktok"></use></svg></button>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="sk is-title footer-head" style="width:64px;height:8px;opacity:.78"></span>
+          <div class="footer-links">
+            <span class="sk is-body" style="width:78px"></span>
+            <span class="sk is-body" style="width:66px"></span>
+            <span class="sk is-body" style="width:72px"></span>
+            <span class="sk is-body" style="width:58px"></span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="sk is-title footer-head" style="width:38px;height:8px;opacity:.78"></span>
+          <div class="footer-links">
+            <span class="sk is-body" style="width:112px"></span>
+            <span class="sk is-body" style="width:86px"></span>
+            <span class="sk is-body" style="width:104px"></span>
+            <span class="sk is-body" style="width:82px"></span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <span class="sk is-title footer-head" style="width:72px;height:8px;opacity:.78"></span>
+          <div class="footer-links">
+            <span class="sk is-body" style="width:88px"></span>
+            <span class="sk is-body" style="width:112px"></span>
+            <span class="sk is-body" style="width:42px"></span>
+            <span class="sk is-body" style="width:96px"></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
