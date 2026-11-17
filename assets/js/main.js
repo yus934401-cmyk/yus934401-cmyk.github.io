@@ -92,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (document.readyState === 'complete') armHero();
       else window.addEventListener('load', armHero, { once: true });
 
+      // Robustness net: a stalled resource can hold back the load event for
+      // a long time on slow links; never delay the video more than 4s.
+      setTimeout(armHero, 4000);
+
       if ('IntersectionObserver' in window) {
         const videoObserver = new IntersectionObserver(
           (entries) => {
