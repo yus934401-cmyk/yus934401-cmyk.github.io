@@ -73,17 +73,30 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       heroVideo.playbackRate = 0.7;
 
+      // Defer video loading: the poster image paints the hero instantly,
+      // the 10MB mp4 only starts fetching after the page finished loading.
+      let heroLoaded = false;
+      let heroVisible = true; // hero sits at the top, so it starts on screen
+
       const playHero = () => {
+        if (!heroLoaded || !heroVisible) return;
         const promise = heroVideo.play();
         if (promise && typeof promise.catch === 'function') promise.catch(() => {});
       };
 
-      playHero();
+      const armHero = () => {
+        heroLoaded = true;
+        playHero();
+      };
+
+      if (document.readyState === 'complete') armHero();
+      else window.addEventListener('load', armHero, { once: true });
 
       if ('IntersectionObserver' in window) {
         const videoObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
+              heroVisible = entry.isIntersecting;
               if (entry.isIntersecting) playHero();
               else heroVideo.pause();
             });
