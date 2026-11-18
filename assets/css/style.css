@@ -761,7 +761,7 @@ svg { display: block; }
 .hero-design-copy {
   position: absolute;
   left: 5%;
-  top: 37.8%;
+  top: 29.5%;
   width: 44.8%;
   height: auto;
   z-index: 3;
@@ -780,7 +780,7 @@ svg { display: block; }
   left: 47%;
   bottom: 2%;
   transform: translateX(-50%);
-  width: 31.7%;
+  width: 40%;
   z-index: 4;
 }
 .hero-design-cta img { width: 100%; height: auto; display: block; }
