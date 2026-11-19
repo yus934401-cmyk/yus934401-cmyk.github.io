@@ -8,7 +8,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="stylesheet" href="assets/css/noto-sans-sc.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261117">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261119-4">
 </head>
 <body>
 
@@ -180,6 +180,17 @@
         <path d="M.045 0H.335C.4 0 .43 .062 .5 .062S.6 0 .665 0H.955C.98 0 1 .02 1 .045V.955C1 .98.98 1 .955 1H.045C.02 1 0 .98 0 .955V.045C0 .02.02 0 .045 0Z"></path>
       </clipPath>
 
+      <!-- The desktop navigation is a cutout in the hero media itself. -->
+      <clipPath id="clip-hero-navigation" clipPathUnits="objectBoundingBox">
+        <path d="M0 0H.27C.285 0 .30 .085 .33 .085H.67C.70 .085 .715 0 .73 0H1V1H0Z"></path>
+      </clipPath>
+
+      <!-- Exported card foreground; the rear glass is rendered live in CSS. -->
+      <clipPath id="clip-hero-card-foreground" clipPathUnits="objectBoundingBox">
+        <path transform="scale(.0005773672 .0009689922)" d="M148 66H825C930 66 967 105 1026 158L1066 198Q1095 223 1140 223H1584Q1684 223 1684 323V864Q1684 964 1584 964H148Q48 964 48 864V166Q48 66 148 66Z"></path>
+        <rect x=".7009238" y=".0639535" width=".2367206" height=".1240310" rx=".0369515" ry=".0620155"></rect>
+      </clipPath>
+
       <!-- Name card: black inner card with a scooped top-right shoulder -->
       <clipPath id="clip-profile-inner" clipPathUnits="objectBoundingBox">
         <path d="M.06 0H.5C.555 0 .58 .03 .605 .08L.655 .18C.675 .22 .71 .245 .76 .245H.94C.975 .245 1 .27 1 .305V.94C1 .975 .975 1 .94 1H.06C.025 1 0 .975 0 .94V.06C0 .025 .025 0 .06 0Z"></path>
@@ -198,10 +209,10 @@
           <img class="brand-logo" src="assets/hero/logo.png" alt="Shisy Shisiyu">
         </a>
 
-        <nav class="nav-links" aria-label="主导航" style="width: 240.021px; height: 50.6667px; transform: matrix(1, 0, 0, 1, 0, -2);">
-          <a href="#projects" style="font-size: 12px;">项目经历</a>
-          <a href="#about" style="font-size: 12px;">个人介绍</a>
-          <a href="#contact" style="font-size: 12px;">联系方式</a>
+        <nav class="nav-links" aria-label="主导航" style="width: 240.021px; height: 50.6667px;">
+          <a href="#projects" style="font-size: 15px;">项目经历</a>
+          <a href="#about" style="font-size: 15px;">个人介绍</a>
+          <a href="#contact" style="font-size: 15px;">联系方式</a>
         </nav>
 
         <div class="header-actions">
@@ -223,14 +234,12 @@
     <section class="hero" aria-label="Hero">
       <div class="hero-card hero-design">
         <svg class="hero-notch" viewBox="0 0 1440 110" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M394 0H1440V110H459C459 110 394 55 394 0Z" fill="#141414"></path>
+          <path d="M394 0C426 0 438 110 490 110H1440V0Z" fill="currentColor"></path>
         </svg>
 
-        <div class="hero-nav-bar" aria-hidden="true"></div>
-
         <div class="hero-media" aria-hidden="true">
-          <video class="hero-media-video" muted="" loop="" playsinline="" preload="none" poster="assets/video/hero-poster.jpg" disablepictureinpicture="">
-            <source src="assets/video/hero.mp4" type="video/mp4">
+          <video class="hero-media-video" muted="" loop="" playsinline="" preload="none" poster="assets/video/hero-poster.jpg?v=20261119-highlight1" disablepictureinpicture="">
+            <source src="assets/video/hero.mp4?v=20261119-highlight1" type="video/mp4">
           </video>
           <span class="hero-media-color"></span>
           <span class="hero-media-tint"></span>
@@ -238,7 +247,9 @@
         </div>
 
         <img class="hero-design-copy" src="assets/hero/copy.png" alt="UI/UX Designer 2027。Hello, I'm Shi Siyu. A UIUX Designer. 用户研究定方向，数据验证结果，AI 工作流加速落地。">
-                <img class="hero-design-card" src="assets/hero/card.png" alt="石思雨个人名片：2027届，UI/UX Designer，黑龙江大学产品设计专业硕士，三段 UI/UX 实习经历，覆盖 C 端与 B 端，AI 工作流。">
+        <div class="hero-design-card">
+          <img class="hero-design-card-foreground" src="assets/hero/card.png" alt="石思雨个人名片：2027届，UI/UX Designer，黑龙江大学产品设计专业硕士，三段 UI/UX 实习经历，覆盖 C 端与 B 端，AI 工作流。">
+        </div>
 
         <div class="hero-design-cta">
           <img src="assets/hero/cta.png" alt="查看作品 / 下载简历">
@@ -260,7 +271,7 @@
                   <span class="skill-name">Sketch</span>
                 </span>
                 <span class="skill-chip" role="listitem">
-                  <span class="skill-icon"><img src="assets/icons/chatgpt.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chatgpt"></use></svg></span>
                   <span class="skill-name">ChatGPT</span>
                 </span>
                 <span class="skill-chip" role="listitem">
@@ -269,7 +280,7 @@
                 </span>
                 <span class="skill-chip" role="listitem">
                   <span class="skill-icon"><img src="assets/icons/wolkbuddy.png" alt="" aria-hidden="true" draggable="false"></span>
-                  <span class="skill-name">WolkBuddy</span>
+                  <span class="skill-name">WorkBuddy</span>
                 </span>
                 <span class="skill-chip" role="listitem">
                   <span class="skill-icon"><img src="assets/icons/lovart.png" alt="" aria-hidden="true" draggable="false"></span>
@@ -298,7 +309,7 @@
                   <span class="skill-name">Sketch</span>
                 </span>
                 <span class="skill-chip" role="listitem">
-                  <span class="skill-icon"><img src="assets/icons/chatgpt.png" alt="" aria-hidden="true" draggable="false"></span>
+                  <span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-chatgpt"></use></svg></span>
                   <span class="skill-name">ChatGPT</span>
                 </span>
                 <span class="skill-chip" role="listitem">
@@ -307,7 +318,7 @@
                 </span>
                 <span class="skill-chip" role="listitem">
                   <span class="skill-icon"><img src="assets/icons/wolkbuddy.png" alt="" aria-hidden="true" draggable="false"></span>
-                  <span class="skill-name">WolkBuddy</span>
+                  <span class="skill-name">WorkBuddy</span>
                 </span>
                 <span class="skill-chip" role="listitem">
                   <span class="skill-icon"><img src="assets/icons/lovart.png" alt="" aria-hidden="true" draggable="false"></span>
