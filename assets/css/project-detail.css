@@ -36,7 +36,7 @@ button:focus-visible, a:focus-visible, .viewer__stage:focus-visible { outline: 3
 .case-intro { padding-block: clamp(38px, 6vw, 80px) clamp(30px, 4vw, 50px); }
 .case-intro__eyebrow { display: block; margin-bottom: 12px; color: var(--case-yellow); font-size: 12px; letter-spacing: .14em; }
 .case-intro h1 { margin: 0 0 16px; font-size: clamp(38px, 6vw, 80px); line-height: 1.2; letter-spacing: -.045em; font-weight: 700; }
-.case-intro h1 span { color: var(--case-yellow); font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: -.02em; }
+.case-intro h1 span { color: var(--case-yellow); font-family: var(--case-font); font-weight: 700; font-size: 1.05em; line-height: 1; vertical-align: -.08em; letter-spacing: -.03em; }
 .case-intro__lead { max-width: 760px; margin: 0; font-size: clamp(17px, 1.6vw, 22px); color: #d3d1c5; }
 .case-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 .case-tags span { padding: 5px 14px; border: 1px solid #48483e; border-radius: 999px; font-size: 13px; color: #cac8ba; }
