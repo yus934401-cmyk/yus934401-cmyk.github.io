@@ -142,6 +142,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    document.querySelectorAll('.case-card__link').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const target = document.getElementById(link.hash.slice(1));
+        if (!target) return;
+        event.preventDefault();
+        const wasClosed = projectsToggle.getAttribute('aria-expanded') !== 'true';
+        if (wasClosed) projectsToggle.click();
+        window.setTimeout(() => {
+          target.focus({ preventScroll: true });
+          target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        }, wasClosed && !reduceMotion ? 650 : 0);
+      });
+    });
+
     document.querySelectorAll('a[href="#experience"]').forEach((link) => {
       link.addEventListener('click', (event) => {
         if (projectsToggle.getAttribute('aria-expanded') === 'true') return;
