@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (staticView) document.documentElement.style.scrollBehavior = 'auto';
 
   const slides = [...document.querySelectorAll('[data-gallery-index]')];
+  const projectName = document.body.dataset.projectName || '闪小白';
   const dialog = document.getElementById('image-viewer');
   if (!dialog || typeof dialog.showModal !== 'function') return;
   const image = dialog.querySelector('.viewer__image');
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     full.src = slide.href;
     save.href = slide.href;
-    save.download = `闪小白-${slide.dataset.title}.webp`;
+    save.download = `${projectName}-${slide.dataset.title}.webp`;
     previous.disabled = current === 0;
     next.disabled = current === slides.length - 1;
   }
