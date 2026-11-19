@@ -1144,8 +1144,10 @@ svg { display: block; }
   .case-card:hover { transform: translateY(-6px); }
 }
 @media (max-width: 940px) {
+  .project-card-grid { gap: 54px 34px; padding-inline: 20px; }
 }
 @media (max-width: 720px) {
+  .project-card-grid { grid-template-columns: minmax(0, 1fr); gap: 50px; padding: 12px 14px 38px; max-width: 510px; }
 }
 
 .projects-toggle-wrap {
