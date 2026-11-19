@@ -1112,6 +1112,10 @@ svg { display: block; }
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, .35);
   pointer-events: none;
 }
+.case-card__cover-clip {
+  position: absolute; left: 12.24921%; top: 13.33333%; width: 78.1415%; height: 43.73984%;
+  overflow: hidden; border-radius: 6.75676% / 9.29368%;
+}
 .case-card__signature {
   position: absolute; right: 11.72122%; top: 6.34146%;
   display: flex; flex-direction: column; align-items: flex-end;
