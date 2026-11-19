@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const next = dialog.querySelector('[data-next]');
   const save = dialog.querySelector('.viewer__save');
   let current = 0;
+  let loadToken = 0;
   let trigger = null;
   let dragging = null;
 
@@ -31,9 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
     title.textContent = `${current + 1} / ${slides.length} · ${slide.dataset.title}`;
     image.alt = slide.querySelector('img').alt;
     status.textContent = '正在加载高清图片…';
-    image.onload = () => { status.textContent = '可放大查看细节；按 Esc 关闭。'; };
-    image.onerror = () => { status.textContent = '高清图片暂未加载成功，可保存图片或稍后重试。'; };
-    image.src = slide.href;
+    const preview = slide.querySelector('img');
+    image.src = preview.currentSrc || preview.src;
+    const token = ++loadToken;
+    const full = new Image();
+    full.decoding = 'async';
+    full.onload = () => {
+      if (token !== loadToken || !dialog.open) return;
+      image.src = full.src;
+      status.textContent = dialog.classList.contains('is-zoomed')
+        ? '可拖动图片或滚动查看，手机可左右滑动。'
+        : '可放大查看细节；按 Esc 关闭。';
+    };
+    full.onerror = () => {
+      if (token === loadToken && dialog.open) status.textContent = '高清图片暂不可用，当前显示预览图。';
+    };
+    full.src = slide.href;
     save.href = slide.href;
     save.download = `闪小白-${slide.dataset.title}.webp`;
     previous.disabled = current === 0;
