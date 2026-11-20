@@ -8,7 +8,7 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="stylesheet" href="assets/css/noto-sans-sc.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261120-explore1">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261120-feedback1">
   <link rel="stylesheet" href="assets/css/explorations.css?v=20261120-explore1">
   <link rel="stylesheet" href="assets/css/about.css?v=20261120-about1">
 </head>
@@ -638,19 +638,20 @@
 </section>
 
     <!-- ============================================================
-         NEWSLETTER
+         FEEDBACK
          ============================================================ -->
-    <section class="newsletter-zone" id="pricing" aria-label="Newsletter">
+    <section class="newsletter-zone" id="pricing" aria-label="留言">
       <div class="newsletter-blackout" aria-hidden="true"></div>
-      <div class="newsletter reveal is-visible">
-        <span class="sk is-title newsletter-title" style="width:min(410px,76%);height:11px"></span>
-        <form class="newsletter-form" action="#" method="get" novalidate="">
-          <label class="field">
-            <span class="field-ghost" aria-hidden="true"><span class="sk is-title" style="width:54%;height:7px;opacity:.35"></span></span>
-            <input type="email" name="email" aria-label="Email address" autocomplete="email">
-          </label>
-          <button class="btn btn--dark subscribe-btn" type="submit">Subscribe Now</button>
-        </form>
+      <div class="newsletter-content">
+        <div class="newsletter reveal is-visible">
+          <p class="newsletter-title">欢迎留下作品建议、交流想法或合作机会，我会认真阅读。</p>
+          <div class="newsletter-form">
+            <textarea class="newsletter-message" rows="2" maxlength="1000" autocomplete="off" aria-label="留言内容" aria-describedby="feedback-privacy" placeholder="关于作品、设计或这个网站，都可以聊聊。如果想要回复可以留下联系方式……"></textarea>
+            <button class="btn btn--dark newsletter-send" type="button">发送留言</button>
+          </div>
+        </div>
+        <p class="newsletter-privacy" id="feedback-privacy">留言不会公开展示，仅用于接收反馈和与你联系。</p>
+        <p class="newsletter-status" role="status"></p>
       </div>
     </section>
 
@@ -724,7 +725,7 @@
       <a class="viewer__save" download>保存图片</a>
     </div>
   </dialog>
-  <script src="assets/js/main.js?v=20261120-explore1"></script>
+  <script src="assets/js/main.js?v=20261120-feedback1"></script>
   <script src="assets/js/project-detail.js?v=20261120-explore1" defer></script>
 
 

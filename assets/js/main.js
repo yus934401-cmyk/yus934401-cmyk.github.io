@@ -205,29 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 940) setMenu(false);
   });
 
-  /* ---------- Newsletter input state ---------- */
-  const field = document.querySelector('.field');
-  const emailInput = field?.querySelector('input');
-
-  const syncField = () => {
-    if (!field || !emailInput) return;
-    field.classList.toggle('has-value', emailInput.value.trim().length > 0);
-  };
-
-  emailInput?.addEventListener('input', syncField);
-  emailInput?.addEventListener('change', syncField);
-
-  /* Prevent the mock form from doing a page reload */
-  document.querySelector('.newsletter-form')?.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const btn = event.currentTarget.querySelector('.subscribe-btn');
-    if (!btn) return;
-    const original = btn.textContent;
-    btn.textContent = 'Subscribed';
-    btn.disabled = true;
-    window.setTimeout(() => {
-      btn.textContent = original;
-      btn.disabled = false;
-    }, 1800);
+  const feedback = document.querySelector('.newsletter-content');
+  feedback?.querySelector('.newsletter-send')?.addEventListener('click', () => {
+    feedback.querySelector('.newsletter-status').textContent =
+      '留言功能暂未开通，你填写的内容尚未发送或保存。';
   });
 });
