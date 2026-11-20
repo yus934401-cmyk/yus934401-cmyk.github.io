@@ -2697,6 +2697,11 @@ svg { display: block; }
   font-size: 14px;
   line-height: 21px;
   resize: none;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.newsletter-message::-webkit-scrollbar {
+  display: none;
 }
 .newsletter-message::placeholder {
   color: #62550e;
