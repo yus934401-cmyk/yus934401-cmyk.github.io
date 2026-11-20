@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     full.src = slide.href;
     save.href = slide.href;
-    save.download = `${projectName}-${slide.dataset.title}.webp`;
+    const slideProjectName = slide.closest('[data-project-name]')?.dataset.projectName || projectName;
+    save.download = `${slideProjectName}-${slide.dataset.title}.webp`;
     previous.disabled = current === 0;
     next.disabled = current === slides.length - 1;
   }

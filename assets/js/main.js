@@ -129,17 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (projectsMore && projectsToggle) {
     const projectsToggleText = projectsToggle.querySelector('.projects-toggle-text');
 
-    projectsToggle.addEventListener('click', () => {
-      const expanded = projectsToggle.getAttribute('aria-expanded') !== 'true';
-
+    const setExplorationsOpen = (expanded) => {
       projectsMore.classList.toggle('is-open', expanded);
       projectsMore.inert = !expanded;
       projectsMore.setAttribute('aria-hidden', String(!expanded));
       projectsToggle.setAttribute('aria-expanded', String(expanded));
 
       if (projectsToggleText) {
-        projectsToggleText.textContent = expanded ? '收起全部' : '展开全部';
+        projectsToggleText.textContent = expanded ? '收起设计探索' : '查看更多设计';
       }
+    };
+    // HTML stays expanded without JavaScript; enhanced browsing starts folded.
+    setExplorationsOpen(['#explorations', '#exploration-3d', '#haohanjuan'].includes(location.hash));
+    projectsToggle.addEventListener('click', () => {
+      setExplorationsOpen(projectsToggle.getAttribute('aria-expanded') !== 'true');
     });
 
     document.querySelectorAll('.case-card__link').forEach((link) => {

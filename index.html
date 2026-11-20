@@ -8,7 +8,8 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preload" href="assets/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin="">
   <link rel="stylesheet" href="assets/css/noto-sans-sc.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261120-project-intro1">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261120-explore1">
+  <link rel="stylesheet" href="assets/css/explorations.css?v=20261120-explore1">
 </head>
 <body>
 
@@ -444,7 +445,7 @@
 
         <div class="projects-toggle-wrap">
           <button class="projects-toggle" type="button" aria-expanded="true" aria-controls="projects-more">
-            <span class="projects-toggle-text">收起全部</span>
+            <span class="projects-toggle-text">收起设计探索</span>
             <svg class="projects-toggle-icon" aria-hidden="true"><use href="#i-chevron"></use></svg>
           </button>
         </div>
@@ -454,125 +455,132 @@
     <div class="projects-more is-open" id="projects-more" aria-hidden="false">
       <div class="projects-more-inner">
 
-    <!-- ============================================================
-         PROJECT DETAILS
-         ============================================================ -->
-    <section class="project-details" aria-label="项目详情">
-      <div class="project-details-head">
-        <span class="project-details-kicker">CASE STUDIES · 项目详情</span>
-        <p class="project-details-sub">四个项目的设计过程、关键动作与结果。</p>
-      </div>
-
-      <div class="project-details-list">
-        <article class="project-detail project-detail--yellow project-detail--svg" id="project-case-1" tabindex="-1">
-          <div class="project-detail-svg-overlay">
-            <div class="project-detail-copy">
-              <span class="project-detail-tag">C端设计 · 二手交易</span>
-              <h2 class="project-detail-title">闪小白</h2>
-              <span class="project-detail-en">SHAN XIAOBAI APP</span>
-              <p class="project-detail-lead">闪小白是小白测评旗下垂直自营 3C 数码交易工具 APP，主打二手购机、旧机回收与官方维修服务。本次以专业、高效、易用为核心，对全链路进行体验改版。</p>
-            </div>
-            <div class="project-detail-stats">
-              <div class="project-stat project-stat--pink">
-                <strong>+23%</strong>
-                <span>回收业务首屏有效触达率</span>
-              </div>
-              <div class="project-stat project-stat--green">
-                <strong>+34%</strong>
-                <span>页面平均停留时长</span>
-              </div>
-              <div class="project-stat project-stat--blue">
-                <strong>+18%</strong>
-                <span>下单转化率提升</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-detail-media project-detail-media--svg-fallback">
-            <img src="assets/projects/project-1.webp" alt="闪小白二手交易平台界面">
-          </div>
-        </article>
-
-        <article class="project-detail project-detail--blue" id="project-case-2" tabindex="-1">
-          <span class="project-detail-handle" aria-hidden="true"></span>
-          <div class="project-detail-copy">
-            <span class="project-detail-tag">大屏设计 · 工业数字孪生</span>
-            <h2 class="project-detail-title">可视化大屏</h2>
-            <span class="project-detail-en">INDUSTRIAL DIGITAL TWIN</span>
-            <p class="project-detail-lead">针对美的飞翎电子工业数字孪生运营驾驶舱的体验升级，解决工厂业务规模扩张、管理精细化后，原系统信息层级与视觉体验不匹配的问题。</p>
-            <div class="project-detail-stats">
-              <div class="project-stat project-stat--pink">
-                <strong>4 大</strong>
-                <span>核心业务模块</span>
-              </div>
-              <div class="project-stat project-stat--green">
-                <strong>95%</strong>
-                <span>物流自动化率</span>
-              </div>
-              <div class="project-stat project-stat--blue">
-                <strong>308 天</strong>
-                <span>无损失工事故运行天数</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-detail-media">
-            <img src="assets/projects/project-2.webp" alt="工业数字孪生可视化大屏界面">
-          </div>
-        </article>
-
-        <article class="project-detail project-detail--pink" id="project-case-3" tabindex="-1">
-          <span class="project-detail-handle" aria-hidden="true"></span>
-          <div class="project-detail-copy">
-            <span class="project-detail-tag">AIGC设计 · 运营活动</span>
-            <h2 class="project-detail-title">AIGC 运营活动</h2>
-            <span class="project-detail-en">AIGC CAMPAIGN</span>
-            <p class="project-detail-lead">从运营转化视角切入，为二手交易平台设计「集卡换好礼」游戏化活动，构建参与活动 → 收集卡片 → 兑换奖励 → 促进消费的完整闭环，提升用户活跃与二次转化。</p>
-            <div class="project-detail-stats">
-              <div class="project-stat project-stat--pink">
-                <strong>4 大</strong>
-                <span>主题卡片</span>
-              </div>
-              <div class="project-stat project-stat--green">
-                <strong>3 天</strong>
-                <span>连续抽卡机制</span>
-              </div>
-              <div class="project-stat project-stat--blue">
-                <strong>888 元</strong>
-                <span>最高活动奖励</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-detail-media">
-            <img src="assets/projects/project-3.webp" alt="AIGC 集卡换好礼运营活动视觉">
-          </div>
-        </article>
-
-        <article class="project-detail project-detail--navy" id="project-case-4" tabindex="-1">
-          <span class="project-detail-handle" aria-hidden="true"></span>
-          <div class="project-detail-copy">
-            <span class="project-detail-tag">B端设计 · 信息管理系统</span>
-            <h2 class="project-detail-title">云枢管理系统</h2>
-            <span class="project-detail-en">CLOUDCORE SYSTEM</span>
-            <p class="project-detail-lead">云枢是为科技制造企业个性化定制的信息管理系统，覆盖采购、生产、仓储、销售、财务等日常运营环节，通过实时数据分析与智能决策支持，帮助企业提高效率、降低成本。</p>
-            <div class="project-detail-stats">
-              <div class="project-stat project-stat--pink">
-                <strong>12 个</strong>
-                <span>功能模块</span>
-              </div>
-              <div class="project-stat project-stat--green">
-                <strong>100+</strong>
-                <span>通用组件</span>
-              </div>
-              <div class="project-stat project-stat--blue">
-                <strong>24 列</strong>
-                <span>响应式栅格</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-detail-media">
-            <img src="assets/projects/project-4.jpg" alt="云枢信息管理系统界面">
-          </div>
-        </article>
-      </div>
+    <section class="explorations" id="explorations" aria-labelledby="explorations-title">
+      <header class="explorations__heading">
+        <span class="explorations__eyebrow">CREATIVE EXPLORATIONS · 设计探索</span>
+        <h2 id="explorations-title">在屏幕之外，继续探索设计</h2>
+        <p>从三维场景到角色形象，记录对形态、色彩与材质的探索。</p>
+      </header>
+      <article class="exploration-panel exploration-panel--3d" id="exploration-3d" data-project-name="三维与视觉探索" aria-labelledby="exploration-3d-title">
+        <header class="exploration-panel__header">
+          <div><span class="exploration-panel__number">EXPLORATION / 01</span><h3 id="exploration-3d-title">三维与视觉探索</h3><p>在光影、材质与场景之间，寻找画面的表达方式。</p></div>
+          <div class="exploration-panel__tags"><span>产品视觉</span><span>场景构成</span><span>卡通三维</span></div>
+        </header>
+        <div class="exploration-grid exploration-grid--3d">
+<figure class="exploration-work exploration-work--featured">
+              <a class="exploration-work__image" href="assets/explorations/snow-dryer-full.webp" target="_blank" rel="noopener" data-gallery-index="0" data-title="雪地吹风机" aria-label="放大查看：雪地吹风机">
+                <img src="assets/explorations/snow-dryer-thumb.webp" width="720" height="1152" alt="雪地吹风机" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>雪地吹风机</strong><span>产品视觉 · 材质与场景</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/guyu-full.webp" target="_blank" rel="noopener" data-gallery-index="1" data-title="护肤品视觉" aria-label="放大查看：护肤品视觉">
+                <img src="assets/explorations/guyu-thumb.webp" width="720" height="960" alt="护肤品视觉" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>护肤品视觉</strong><span>产品视觉 · 自然氛围</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/treadmill-full.webp" target="_blank" rel="noopener" data-gallery-index="2" data-title="跑步机场景" aria-label="放大查看：跑步机场景">
+                <img src="assets/explorations/treadmill-thumb.webp" width="720" height="864" alt="跑步机场景" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>跑步机场景</strong><span>产品视觉 · 空间与光影</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/burger-full.webp" target="_blank" rel="noopener" data-gallery-index="3" data-title="汉堡店" aria-label="放大查看：汉堡店">
+                <img src="assets/explorations/burger-thumb.webp" width="720" height="720" alt="汉堡店" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>汉堡店</strong><span>卡通三维 · 场景练习</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/balloons-full.webp" target="_blank" rel="noopener" data-gallery-index="4" data-title="数字气球" aria-label="放大查看：数字气球">
+                <img src="assets/explorations/balloons-thumb.webp" width="720" height="720" alt="数字气球" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>数字气球</strong><span>卡通三维 · 色彩与造型</span></figcaption>
+            </figure>
+        </div>
+        <p class="exploration-panel__note">精选 5 件练习与视觉作品 · 点击图片查看细节</p>
+      </article>
+      <article class="exploration-panel exploration-panel--plush" id="haohanjuan" data-project-name="好汉卷" aria-labelledby="haohanjuan-title">
+        <header class="exploration-panel__header">
+          <div><span class="exploration-panel__number">EXPLORATION / 02</span><h3 id="haohanjuan-title">好汉卷</h3><p>把水浒人物的性格与标志性元素，转化为毛绒角色形象。</p></div>
+          <div class="exploration-panel__tags"><span>毛绒玩具概念</span><span>系列角色</span><span>AI 辅助</span></div>
+        </header>
+<figure class="exploration-work exploration-work--group">
+              <a class="exploration-work__image" href="assets/explorations/haohan-group-full.webp" target="_blank" rel="noopener" data-gallery-index="5" data-title="好汉卷 · 系列场景" aria-label="放大查看：好汉卷 · 系列场景">
+                <img src="assets/explorations/haohan-group-thumb.webp" width="720" height="474" alt="好汉卷 · 系列场景" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>好汉卷 · 系列场景</strong><span>AI 辅助概念设计</span></figcaption>
+            </figure>
+        <div class="exploration-panel__subheading"><h4>六位好汉，各有性格</h4><p>用表情、配色与随身配件，建立角色辨识度。</p></div>
+        <div class="exploration-grid exploration-grid--characters">
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/songjiang-full.webp" target="_blank" rel="noopener" data-gallery-index="6" data-title="宋江" aria-label="放大查看：宋江">
+                <img src="assets/explorations/songjiang-thumb.webp" width="720" height="960" alt="宋江" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>宋江</strong><span>角色概念 · AI 辅助</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/likui-full.webp" target="_blank" rel="noopener" data-gallery-index="7" data-title="李逵" aria-label="放大查看：李逵">
+                <img src="assets/explorations/likui-thumb.webp" width="720" height="960" alt="李逵" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>李逵</strong><span>角色概念 · AI 辅助</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/liutang-full.webp" target="_blank" rel="noopener" data-gallery-index="8" data-title="刘唐" aria-label="放大查看：刘唐">
+                <img src="assets/explorations/liutang-thumb.webp" width="720" height="960" alt="刘唐" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>刘唐</strong><span>角色概念 · AI 辅助</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/yangzhi-full.webp" target="_blank" rel="noopener" data-gallery-index="9" data-title="杨志" aria-label="放大查看：杨志">
+                <img src="assets/explorations/yangzhi-thumb.webp" width="720" height="960" alt="杨志" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>杨志</strong><span>角色概念 · AI 辅助</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/wusong-full.webp" target="_blank" rel="noopener" data-gallery-index="10" data-title="武松" aria-label="放大查看：武松">
+                <img src="assets/explorations/wusong-thumb.webp" width="720" height="960" alt="武松" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>武松</strong><span>角色概念 · AI 辅助</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/luzhishen-full.webp" target="_blank" rel="noopener" data-gallery-index="11" data-title="鲁智深" aria-label="放大查看：鲁智深">
+                <img src="assets/explorations/luzhishen-thumb.webp" width="720" height="960" alt="鲁智深" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>鲁智深</strong><span>角色概念 · AI 辅助</span></figcaption>
+            </figure>
+        </div>
+        <div class="exploration-panel__subheading"><h4>从造型到形象表达</h4><p>以武松为例，展示线稿与多视角概念探索。</p></div>
+        <div class="exploration-grid exploration-grid--process">
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/wusong-lines-full.webp" target="_blank" rel="noopener" data-gallery-index="12" data-title="角色线稿探索" aria-label="放大查看：角色线稿探索">
+                <img src="assets/explorations/wusong-lines-thumb.webp" width="720" height="315" alt="角色线稿探索" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>角色线稿探索</strong><span>造型与配件表达</span></figcaption>
+            </figure>
+<figure class="exploration-work ">
+              <a class="exploration-work__image" href="assets/explorations/wusong-views-full.webp" target="_blank" rel="noopener" data-gallery-index="13" data-title="多视角概念探索" aria-label="放大查看：多视角概念探索">
+                <img src="assets/explorations/wusong-views-thumb.webp" width="720" height="411" alt="多视角概念探索" loading="lazy" decoding="async">
+                <span class="exploration-work__zoom" aria-hidden="true">↗</span>
+              </a>
+              <figcaption><strong>多视角概念探索</strong><span>形象与材质表现</span></figcaption>
+            </figure>
+        </div>
+        <p class="exploration-panel__note">AI 辅助概念设计 · 角色、材质与应用场景均为概念效果展示。</p>
+      </article>
     </section>
 
 
@@ -700,7 +708,20 @@
     </footer>
   </main>
 
-  <script src="assets/js/main.js?v=20261119-projects2"></script>
+  <dialog class="viewer" id="image-viewer" aria-labelledby="viewer-title">
+    <div class="viewer__toolbar">
+      <h2 class="viewer__title" id="viewer-title">查看项目图片</h2>
+      <div class="viewer__actions"><button type="button" data-zoom aria-pressed="false">放大细节</button><button type="button" data-close aria-label="关闭大图">关闭</button></div>
+    </div>
+    <div class="viewer__stage" tabindex="0" aria-label="图片查看区域，放大后可滚动或拖动"><img class="viewer__image" alt="" decoding="async" draggable="false"></div>
+    <div class="viewer__footer">
+      <div class="viewer__paging"><button type="button" data-previous>上一张</button><button type="button" data-next>下一张</button></div>
+      <p class="viewer__status" role="status" aria-live="polite"></p>
+      <a class="viewer__save" download>保存图片</a>
+    </div>
+  </dialog>
+  <script src="assets/js/main.js?v=20261120-explore1"></script>
+  <script src="assets/js/project-detail.js?v=20261120-explore1" defer></script>
 
 
 </body></html>
