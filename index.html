@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/css/noto-sans-sc.css">
   <link rel="stylesheet" href="assets/css/style.css?v=20261120-explore1">
   <link rel="stylesheet" href="assets/css/explorations.css?v=20261120-explore1">
+  <link rel="stylesheet" href="assets/css/about.css?v=20261120-about1">
 </head>
 <body>
 
@@ -590,48 +591,51 @@
     <!-- ============================================================
          PERSONAL INTRO
          ============================================================ -->
-    <section class="intro" id="about" aria-label="个人介绍">
-      <div class="intro-copy">
-        <span class="intro-eyebrow"><i aria-hidden="true"></i>ABOUT ME · 个人介绍</span>
-        <h2 class="intro-title">你好，我是<br><em>石思雨</em></h2>
-        <p class="intro-lead">产品设计专业硕士，关注用户体验、数据可视化与 AI 辅助设计。用用户研究定方向，用数据验证结果。</p>
-
-        <div class="intro-details">
-          <div class="intro-block">
-            <span class="intro-label">教育背景</span>
-            <p class="intro-value">黑龙江大学 · 产品设计专业硕士</p>
-            <p class="intro-meta">2024 — 2027 · 产品设计</p>
-          </div>
-          <div class="intro-block">
-            <span class="intro-label">个人荣誉</span>
-            <ul class="intro-honors">
-              <li><span class="intro-honor-dot" aria-hidden="true"></span><span class="sk is-body" style="width:74%"></span></li>
-              <li><span class="intro-honor-dot" aria-hidden="true"></span><span class="sk is-body" style="width:58%"></span></li>
-              <li><span class="intro-honor-dot" aria-hidden="true"></span><span class="sk is-body" style="width:66%"></span></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="intro-actions">
-          <a class="btn btn--yellow" href="#projects">查看项目</a>
-          <a class="btn btn--outline-light" href="#contact">联系我</a>
-        </div>
-      </div>
-
-      <div class="intro-portrait">
-        <div class="intro-portrait-frame">
-          <span class="intro-portrait-glow" aria-hidden="true"></span>
-          <span class="intro-portrait-ph" aria-hidden="true">
-            <svg><use href="#i-image"></use></svg>
-          </span>
-          <span class="intro-portrait-tag">个人照片</span>
-        </div>
-        <div class="intro-portrait-caption">
-          <span>SHI SIYU</span>
-          <span>2027</span>
-        </div>
-      </div>
-    </section>
+    <section class="personal-intro" id="about" aria-label="个人介绍">
+<img class="personal-intro__source" src="assets/about/introduction.svg" width="1920" height="1141" alt="" aria-hidden="true" loading="lazy" decoding="async">
+<div class="personal-intro__content">
+ <header class="sv-top"><span>@石思雨</span><span>About Me</span></header>
+ <div class="sv-layout">
+  <aside class="sv-side" aria-label="个人照片与教育经历">
+   <figure class="sv-photo"><img src="assets/about/portrait.jpg" width="700" height="773" alt="石思雨黑白个人肖像"><figcaption class="sv-sticker">About Me</figcaption></figure>
+   <p class="sv-caption">UI/UX DESIGNER</p>
+   <section class="sv-education" aria-labelledby="sv-education-title">
+    <h2 id="sv-education-title" class="sv-label">教育经历</h2>
+    <div class="sv-school-list">
+     <div class="sv-school"><time>2020.9 - 2024.6</time><p><strong>黑龙江大学</strong> ｜ 工艺美术本科</p></div>
+     <div class="sv-school"><time>2024.9 - 2027.6</time><p><strong>黑龙江大学</strong> ｜ 产品设计硕士在读</p></div>
+    </div>
+   </section>
+  </aside>
+  <div class="sv-main">
+   <section class="sv-section" aria-labelledby="sv-experience-title">
+    <div><h2 id="sv-experience-title" class="sv-label">实习经历</h2></div>
+    <div class="sv-section-content">
+     <article class="sv-job">
+      <header class="sv-job-header"><h3>美的·美云智数</h3><span>UI/UX设计师</span><time>2026.05 - 2026.09</time></header>
+      <ul><li>参与工业数字孪生大屏的交互与视觉设计，结合运维场景梳理信息层级、告警逻辑与处置流程。</li><li>主导可视化组件库从 0 到 1 搭建，沉淀 <b>30+</b> 标准组件，被 <b>8</b> 个项目复用。</li></ul>
+     </article>
+     <article class="sv-job">
+      <header class="sv-job-header"><h3>河湾科技有限公司</h3><span>UI设计师</span><time>2025.12-2026.03</time></header>
+      <ul><li>业务范围：负责闪小白APP的交互与视觉设计，覆盖二手购机、旧机回收和社区三条业务线，从需求到上线全流程跟进。</li><li>交付产出：输出 <b>50+</b> 交互原型与 <b>30+</b> 高保真界面，跟进 <b>2</b> 轮开发走查，闭环 13 个还原问题，保障上线视觉与设计稿一致。</li></ul>
+     </article>
+    </div>
+   </section>
+   <section class="sv-section" aria-labelledby="sv-ai-title">
+    <div><h2 id="sv-ai-title" class="sv-label">AI应用</h2></div>
+    <div class="sv-section-content">
+     <h3 class="sv-ai-title">把 AI 用进研究、创意与验证</h3>
+     <div class="sv-workflow">
+      <article><p class="sv-step-code">01 / RESEARCH</p><div class="sv-step-detail"><h4>研究整理</h4><p>AI 辅助归类500+条用户评价，结合访谈与竞品分析，提炼体验问题。</p></div></article>
+      <article><p class="sv-step-code">02 / VISUAL</p><div class="sv-step-detail"><h4>视觉探索</h4><p>探索运营视觉、IP角色与AI视觉表现，筛选并完善符合项目需求的方案。</p></div></article>
+      <article><p class="sv-step-code">03 / PROTOTYPE</p><div class="sv-step-detail"><h4>原型验证</h4><p>借助 AI 编程工具搭建可交互原型与网页，验证流程、布局及响应式效果。</p></div></article>
+     </div>
+    </div>
+   </section>
+  </div>
+ </div>
+</div>
+</section>
 
     <!-- ============================================================
          NEWSLETTER
